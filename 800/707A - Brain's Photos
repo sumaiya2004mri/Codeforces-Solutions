@@ -1,0 +1,13 @@
+n, m = list(map(int, input().split()))
+count = 0
+
+for i in range(n):
+    row = input().split()
+    for s in row:
+        if (s == "C" or s == "M" or s == "Y"):
+            count += 1
+
+if (count > 0):
+    print("#Color")
+else:
+    print("#Black&White")
