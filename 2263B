@@ -1,0 +1,54 @@
+//https://codeforces.com/problemset/problem/2263/B
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,k;
+        cin>>n>>k;
+        if (k < n || k == 2 * n)
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            vector <vector<int>> ans(n+1,vector <int>(n+1));
+            int val = n + 1;
+            for (int i = 1; i <= n; i++)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    if (i == j)
+                    {
+                        ans[i][j] = i;
+                    }
+                    else
+                    {
+                        ans[i][j] = val;
+                        val++;
+                    }
+                }
+            }
+            int shift = k-n ;
+            int r=2;
+            while(shift--)
+            {
+                swap(ans[r][1],ans[r][r]);
+                r++;
+            }
+            for(int row=1; row<=n; row++)
+            {
+                for(int col=1; col<=n; col++)
+                {
+                    cout<<ans[row][col]<<" ";
+                }
+                cout<<endl;
+            }
+        }
+    }
+}
