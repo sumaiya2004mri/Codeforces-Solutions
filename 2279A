@@ -1,0 +1,19 @@
+//https://codeforces.com/problemset/problem/2269/A
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long n, k;
+        cin >> n >> k;
+        long long ans = (1LL << (n + 1 - k)) + 2 * (k - 1);
+        cout << ans << endl;
+    }
+}
+
+//1LL<<(n+1-k) = 2 to the power (n+1-k) (bitwise operation)
